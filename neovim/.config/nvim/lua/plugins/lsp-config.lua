@@ -2,7 +2,11 @@ return {
 	{
 		"williamboman/mason.nvim",
 		config = function()
-			require("mason").setup()
+			require("mason").setup({
+				ensure_installed = {
+					"pyright",
+				},
+			})
 		end,
 	},
 	{
@@ -16,13 +20,18 @@ return {
 	{
 		"neovim/nvim-lspconfig",
 		config = function()
-      local capabilities = require('cmp_nvim_lsp').default_capabilities()
+			local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 			local lspconfig = require("lspconfig")
 
 			lspconfig.lua_ls.setup({
-        capabilities = capabilities 
-      })
+				capabilities = capabilities,
+			})
+			lspconfig.pyright.setup({
+				on_attach = on_attach,
+				capabilities = capabilities,
+				filetypes = { "python" },
+			})
 
 			vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
 			vim.keymap.set("n", "gd", vim.lsp.buf.definition, {})

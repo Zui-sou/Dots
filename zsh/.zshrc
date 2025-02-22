@@ -15,15 +15,14 @@ alias pacPurge="pacman -Qtdq | pacman -Rns -"
 alias edit='nvim'
 alias python='python3'
 alias 'cd.'='cd && clear'
-alias rmswap='rm -rf ~/.local/share/nvim/swap/ && echo "Done"'
-alias update='yay'
-alias format='sudo ./.format.sh'
 alias reboot='sudo reboot now'
 alias shutdown='sudo shutdown now'
 alias pacman='sudo pacman'
 alias btctl='bluetoothctl'
-alias airpods='bluetoothctl connect 08:25:73:03:8F:B8'
 alias btdisconnect='bluetoothctl disconnect'
+alias tmuxls='tmuxifier load-session'
+alias tmuxes='tmuxifier edit-session'
+alias tmuxns='tmuxifier new-session'
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -118,3 +117,7 @@ source $ZSH/oh-my-zsh.sh
 LANG=C
 eval "$(starship init zsh)"
 export LC_ALL=en_US.UTF-8
+
+export EDITOR=nvim
+export PATH="$HOME/.tmuxifier/bin:$PATH"
+eval "$(tmuxifier init -)"
