@@ -23,6 +23,7 @@ alias btdisconnect='bluetoothctl disconnect'
 alias tmuxls='tmuxifier load-session'
 alias tmuxes='tmuxifier edit-session'
 alias tmuxns='tmuxifier new-session'
+alias tmuxks='tmux kill-session'
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
