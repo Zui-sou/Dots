@@ -12,3 +12,5 @@ vim.keymap.set("n", "<c-l>", ":wincmd l<CR>")
 vim.opt.swapfile = false
 
 vim.wo.number = true
+
+vim.g.python_recommended_style = 0
